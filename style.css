@@ -1,0 +1,66 @@
+html {
+    background-color: black;
+    font-size : 15px;
+    font-family : "times new roman";
+}
+
+h1 {
+    font-size: 24px;
+    text-align: center;
+    color: white;
+}
+
+p {
+    text-align: center;
+    color: white;
+}
+
+canvas {
+    margin-top: 10px;
+    border: solid;
+    border-color: white;
+    border-width: 2px;
+
+    cursor: pointer;
+}
+
+.colorBtn{
+    height: 35px; 
+    width: 35px;
+    
+
+    grid-column : 1;
+
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    border-width: 0px;
+    border-radius: 17.5px;
+    border: solid;
+
+    cursor: pointer;
+
+    transition: opacity .15s,
+    border-width 1s,
+    border-color .15s, 
+    height 1s,
+    width 1s, 
+    border-radius 1;
+    vertical-align: top;
+}
+
+.colorBtn:hover {
+    opacity: .8;
+    border-width: 2px;
+    border-color: white;
+}
+
+.colorBtn:active{
+    opacity: 1;
+
+    border-width: 3px;
+    border-color: white;
+    
+}

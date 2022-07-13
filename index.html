@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Sudoku</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div style="text-align: center">
+        <h1>Color Sudoku</h1>
+        <p>It's like <a href="https://en.wikipedia.org/wiki/Sudoku" target="_blank" style="color: lightskyblue">sudoku</a>, but with colors instead of numbers ;)</p>
+        <canvas height="361" width="361" ></canvas>
+    </div>
+    <div style="text-align: center">
+        <button class="colorBtn" data-key = "red" style="background-color: red"></button>
+        <button class="colorBtn" data-key = "orangered" style="background-color: orangered"></button>
+        <button class="colorBtn" data-key = "orange" style="background-color: orange"></button>
+        <button class="colorBtn" data-key = "yellow" style="background-color: yellow"></button>
+        <button class="colorBtn" data-key = "yellowgreen" style="background-color: yellowgreen"></button>
+        <button class="colorBtn" data-key = "rgb(66, 175, 212)" style="background-color: rgb(66, 175, 212)"></button>
+        <button class="colorBtn" data-key = "rgb(32, 32, 205)" style="background-color: rgb(32, 32, 205)"></button>
+        <button class="colorBtn" data-key = "blueviolet" style="background-color: blueviolet"></button>
+        <button class="colorBtn" data-key = "rgb(238, 89, 114)" style="background-color: rgb(238, 89, 114)"></button>
+    </div>
+    <p id = "currentColor">Current Color: red</p>
+    <script src="squareGrid.js"></script>
+    <script src="idk.js"></script>
+</body>
+</html>
