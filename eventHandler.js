@@ -7,9 +7,14 @@ var row = "row";
 var box = "box";
 var allCoordinates = [];
 var squaresList = [];
+for (var x = 0; x < canvas.width; x += 40) {
+    for (var y = 0; y < canvas.height; y += 40) {
+        allCoordinates.push([x, y]);
+    }
+}
+console.log(allCoordinates);
 for (var x = 0; x < canvas.width - 1; x += 40) {
     for (var y = 0; y < canvas.height - 1; y += 40) {
-        allCoordinates.push([x, y]);
         (oneToNine === 0) ? oneToNine = 1 : oneToNine *= 1;
         // column
         column = "column" + oneToNine.toFixed(0);
@@ -160,7 +165,6 @@ window.addEventListener("load", function () {
 canvas.addEventListener("click", function (event) {
     for (var _i = 0, allCoordinates_1 = allCoordinates; _i < allCoordinates_1.length; _i++) {
         var c = allCoordinates_1[_i];
-        color = "white";
         if ((event.offsetX >= c[0] - 40 && event.offsetX <= c[0]) && (event.offsetY >= c[1] - 40 && event.offsetY <= c[1])) {
             makeColorGrid(c[0] - 37, c[1] - 37, c[0] - 2, c[1] - 2, 1, 1);
         }

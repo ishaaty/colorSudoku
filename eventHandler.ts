@@ -11,9 +11,17 @@ let box : string = "box";
 let allCoordinates = []
 let squaresList : any = [];
 
+for(let x = 0; x < canvas.width; x += 40){
+    for (let y = 0; y < canvas.height; y += 40){
+        allCoordinates.push([x, y]);
+    }
+}
+
+console.log(allCoordinates);
+
+
 for(let x = 0; x < canvas.width - 1; x += 40){
     for (let y = 0; y < canvas.height - 1; y += 40){
-        allCoordinates.push([x, y]);
         (oneToNine === 0)? oneToNine = 1 : oneToNine *= 1;
 
         // column
@@ -97,7 +105,6 @@ window.addEventListener("load", function () {
 
 canvas.addEventListener("click", function (event: MouseEvent){
     for (const c of allCoordinates) {
-        color = "white";
         if ((event.offsetX >= c[0] - 40 && event.offsetX <= c[0]) && (event.offsetY >= c[1] - 40 && event.offsetY <= c[1])){
             makeColorGrid(c[0] - 37, c[1] - 37, c[0] - 2, c[1] - 2, 1, 1);
         }
