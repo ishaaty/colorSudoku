@@ -12,7 +12,7 @@ for (var x = 0; x < canvas.width - 1; x += 40) {
         allCoordinates.push([x, y]);
         (oneToNine === 0) ? oneToNine = 1 : oneToNine *= 1;
         // column
-        column += oneToNine.toFixed(0);
+        column = "column" + oneToNine.toFixed(0);
         // box
         switch (count) {
             case 1:
@@ -24,7 +24,7 @@ for (var x = 0; x < canvas.width - 1; x += 40) {
             case 19:
             case 20:
             case 21:
-                box += "1";
+                box = "box1";
                 break;
             case 4:
             case 5:
@@ -35,7 +35,7 @@ for (var x = 0; x < canvas.width - 1; x += 40) {
             case 22:
             case 23:
             case 24:
-                box += "2";
+                box = "box2";
                 break;
             case 7:
             case 8:
@@ -46,7 +46,7 @@ for (var x = 0; x < canvas.width - 1; x += 40) {
             case 25:
             case 26:
             case 27:
-                box += "3";
+                box = "box3";
                 break;
             case 28:
             case 29:
@@ -57,7 +57,7 @@ for (var x = 0; x < canvas.width - 1; x += 40) {
             case 46:
             case 55:
             case 64:
-                box += "4";
+                box = "box4";
                 break;
             case 31:
             case 32:
@@ -68,7 +68,7 @@ for (var x = 0; x < canvas.width - 1; x += 40) {
             case 49:
             case 50:
             case 51:
-                box += "5";
+                box = "box5";
                 break;
             case 34:
             case 35:
@@ -79,7 +79,7 @@ for (var x = 0; x < canvas.width - 1; x += 40) {
             case 52:
             case 53:
             case 54:
-                box += "6";
+                box = "box6";
                 break;
             case 55:
             case 56:
@@ -90,7 +90,7 @@ for (var x = 0; x < canvas.width - 1; x += 40) {
             case 73:
             case 74:
             case 75:
-                box += "7";
+                box = "box7";
                 break;
             case 58:
             case 59:
@@ -101,7 +101,7 @@ for (var x = 0; x < canvas.width - 1; x += 40) {
             case 76:
             case 77:
             case 78:
-                box += "8";
+                box = "box8";
                 break;
             case 61:
             case 62:
@@ -112,37 +112,37 @@ for (var x = 0; x < canvas.width - 1; x += 40) {
             case 79:
             case 80:
             case 81:
-                box += "9";
+                box = "box9";
                 break;
         }
         // row
         switch (true) {
             case (count <= 9):
-                row += 1;
+                row = "row1";
                 break;
             case (count <= 18):
-                row += 2;
+                row = "row2";
                 break;
             case (count <= 27):
-                row += 3;
+                row = "row3";
                 break;
             case (count <= 36):
-                row += 4;
+                row = "row4";
                 break;
             case (count <= 45):
-                row += 5;
+                row = "row5";
                 break;
             case (count <= 54):
-                row += 6;
+                row = "row6";
                 break;
             case (count <= 63):
-                row += 7;
+                row = "row7";
                 break;
             case (count <= 72):
-                row += 8;
+                row = "row8";
                 break;
             case (count <= 81):
-                row += 9;
+                row = "row9";
                 break;
         }
         var s = new Square(column, row, box, x, y, "red");
@@ -165,7 +165,6 @@ canvas.addEventListener("click", function (event) {
             makeColorGrid(c[0] - 37, c[1] - 37, c[0] - 2, c[1] - 2, 1, 1);
         }
     }
-    color = "red";
 });
 document.querySelectorAll(".colorBtn").forEach(function (elm) {
     elm.addEventListener("click", function (event) {
