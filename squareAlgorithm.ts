@@ -43,10 +43,11 @@ class Square {
 
     fillCircle(x : number, y : number, width : number = 1) : void {
         ctx.beginPath();
-        ctx.fillStyle = color;
+        ctx.fillStyle = this.color;
         ctx.arc(x, y, width, 0, Math.PI*2);
         ctx.fill();
         ctx.closePath();
     }
-    
+
 }
+
