@@ -5,6 +5,7 @@ html {
 }
 
 h1 {
+    margin-top: 45px;
     font-size: 24px;
     text-align: center;
     color: white;
@@ -61,6 +62,6 @@ canvas {
     opacity: 1;
 
     border-width: 3px;
-    border-color: white;
+    border-color: rgb(239, 198, 15);
     
 }
