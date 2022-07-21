@@ -7,14 +7,9 @@ var row = "row";
 var box = "box";
 var allCoordinates = [];
 var squaresList = [];
-for (var x = 0; x < canvas.width; x += 40) {
-    for (var y = 0; y < canvas.height; y += 40) {
-        allCoordinates.push([x, y]);
-    }
-}
-console.log(allCoordinates);
 for (var x = 0; x < canvas.width - 1; x += 40) {
     for (var y = 0; y < canvas.height - 1; y += 40) {
+        allCoordinates.push([x, y]);
         (oneToNine === 0) ? oneToNine = 1 : oneToNine *= 1;
         // column
         column = "column" + oneToNine.toFixed(0);
@@ -159,14 +154,18 @@ for (var x = 0; x < canvas.width - 1; x += 40) {
 }
 console.log(squaresList);
 window.addEventListener("load", function () {
-    makeColorGrid(0, 0, canvas.height, canvas.width, 40);
-    makeColorGrid(0, 0, canvas.height, canvas.width, 120, 3);
+    var grid = squaresList[0];
+    grid.makeColorGrid(0, 0, canvas.height, canvas.width, 40);
+    grid.makeColorGrid(0, 0, canvas.height, canvas.width, 120, 3);
 });
 canvas.addEventListener("click", function (event) {
-    for (var _i = 0, allCoordinates_1 = allCoordinates; _i < allCoordinates_1.length; _i++) {
-        var c = allCoordinates_1[_i];
-        if ((event.offsetX >= c[0] - 40 && event.offsetX <= c[0]) && (event.offsetY >= c[1] - 40 && event.offsetY <= c[1])) {
-            makeColorGrid(c[0] - 37, c[1] - 37, c[0] - 2, c[1] - 2, 1, 1);
+    for (var _i = 0, squaresList_1 = squaresList; _i < squaresList_1.length; _i++) {
+        var s = squaresList_1[_i];
+        if ((event.offsetX >= s.xCoordinate - 40 && event.offsetX <= s.xCoordinate) && (event.offsetY >= s.yCoordinate - 40 && event.offsetY <= s.yCoordinate)) {
+            s.makeColorGrid(s.xCoordinate - 37, s.yCoordinate - 37, s.xCoordinate - 2, s.yCoordinate - 2, 1, 1);
+        }
+        else if ((event.offsetX >= s.xCoordinate && event.offsetX <= s.xCoordinate + 40) && (event.offsetY >= s.yCoordinate && event.offsetY <= s.yCoordinate + 40)) {
+            s.makeColorGrid(s.xCoordinate + 3, s.yCoordinate + 3, s.xCoordinate + 38, s.yCoordinate + 38, 1, 1);
         }
     }
 });
@@ -174,32 +173,27 @@ document.querySelectorAll(".colorBtn").forEach(function (elm) {
     elm.addEventListener("click", function (event) {
         var clickedColor = event.currentTarget;
         currentColor.textContent = ("Current Color: ".concat(clickedColor.dataset.key));
-        for (var _i = 0, allCoordinates_2 = allCoordinates; _i < allCoordinates_2.length; _i++) {
-            var c = allCoordinates_2[_i];
-            color = clickedColor.dataset.key;
-        }
+        color = clickedColor.dataset.key;
     });
 });
-function makeColorGrid(xMin, yMin, xMax, yMax, inc, width) {
-    if (width === void 0) { width = 1; }
-    // making vertical lines
-    for (var xUpdate = xMin; xUpdate < xMax; xUpdate += inc) {
-        for (var yUpdate = yMin; yUpdate <= yMax; yUpdate++) {
-            fillCircle(xUpdate, yUpdate, width);
-        }
-    }
-    // making horizontal lines
-    for (var yUpdate = yMin; yUpdate < yMax; yUpdate += inc) {
-        for (var xUpdate = xMin; xUpdate < xMax; xUpdate++) {
-            fillCircle(xUpdate, yUpdate, width);
-        }
-    }
-}
-function fillCircle(x, y, width) {
-    if (width === void 0) { width = 1; }
-    ctx.beginPath();
-    ctx.fillStyle = color;
-    ctx.arc(x, y, width, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.closePath();
-}
+// function makeColorGrid(xMin : number, yMin : number, xMax : number, yMax : number, inc : number, width : number = 1) {
+//     // making vertical lines
+//     for (let xUpdate = xMin; xUpdate < xMax; xUpdate += inc){
+//         for (let yUpdate = yMin; yUpdate <= yMax; yUpdate++){
+//                 fillCircle(xUpdate, yUpdate, width);
+//         }
+//     }
+//     // making horizontal lines
+//     for (let yUpdate = yMin; yUpdate < yMax; yUpdate += inc){ 
+//         for (let xUpdate = xMin; xUpdate < xMax; xUpdate++){
+//                 fillCircle(xUpdate, yUpdate, width);
+//         }
+//     }
+// }
+// function fillCircle(x : number, y : number, width : number = 1) : void {
+//     ctx.beginPath();
+//     ctx.fillStyle = color;
+//     ctx.arc(x, y, width, 0, Math.PI*2);
+//     ctx.fill();
+//     ctx.closePath();
+// }
