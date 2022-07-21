@@ -23,5 +23,30 @@ class Square {
         this.color = color;
     }
 
-    // fill & makeColorGrid
+    makeColorGrid(xMin : number, yMin : number, xMax : number, yMax : number, inc : number, width : number = 1) {
+        // making vertical lines
+        for (let xUpdate = xMin; xUpdate < xMax; xUpdate += inc){
+            for (let yUpdate = yMin; yUpdate <= yMax; yUpdate++){
+                    this.fillCircle(xUpdate, yUpdate, width);
+            
+            }
+        }
+    
+        // making horizontal lines
+        for (let yUpdate = yMin; yUpdate < yMax; yUpdate += inc){ 
+            for (let xUpdate = xMin; xUpdate < xMax; xUpdate++){
+                    this.fillCircle(xUpdate, yUpdate, width);
+                
+            }
+        }
+    }
+
+    fillCircle(x : number, y : number, width : number = 1) : void {
+        ctx.beginPath();
+        ctx.fillStyle = color;
+        ctx.arc(x, y, width, 0, Math.PI*2);
+        ctx.fill();
+        ctx.closePath();
+    }
+    
 }
