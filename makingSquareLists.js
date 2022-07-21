@@ -3,6 +3,9 @@ var oneToNine = 1;
 var column = "column";
 var row = "row";
 var box = "box";
+var columnNumber;
+var rowNumber;
+var boxNumber;
 var squaresList = [];
 var row1 = [];
 var row2 = [];
@@ -36,6 +39,35 @@ for (var x = 0; x < canvas.width - 1; x += 40) {
         (oneToNine === 0) ? oneToNine = 1 : oneToNine *= 1;
         // column
         column = "column" + oneToNine.toFixed(0);
+        switch (oneToNine) {
+            case 1:
+                columnNumber = column1;
+                break;
+            case 2:
+                columnNumber = column2;
+                break;
+            case 3:
+                columnNumber = column3;
+                break;
+            case 4:
+                columnNumber = column4;
+                break;
+            case 5:
+                columnNumber = column5;
+                break;
+            case 6:
+                columnNumber = column6;
+                break;
+            case 7:
+                columnNumber = column7;
+                break;
+            case 8:
+                columnNumber = column8;
+                break;
+            case 9:
+                columnNumber = column9;
+                break;
+        }
         // box
         switch (count) {
             case 1:
@@ -48,6 +80,7 @@ for (var x = 0; x < canvas.width - 1; x += 40) {
             case 20:
             case 21:
                 box = "box1";
+                boxNumber = box1;
                 break;
             case 4:
             case 5:
@@ -59,6 +92,7 @@ for (var x = 0; x < canvas.width - 1; x += 40) {
             case 23:
             case 24:
                 box = "box2";
+                boxNumber = box2;
                 break;
             case 7:
             case 8:
@@ -70,6 +104,7 @@ for (var x = 0; x < canvas.width - 1; x += 40) {
             case 26:
             case 27:
                 box = "box3";
+                boxNumber = box3;
                 break;
             case 28:
             case 29:
@@ -81,6 +116,7 @@ for (var x = 0; x < canvas.width - 1; x += 40) {
             case 55:
             case 64:
                 box = "box4";
+                boxNumber = box4;
                 break;
             case 31:
             case 32:
@@ -92,6 +128,7 @@ for (var x = 0; x < canvas.width - 1; x += 40) {
             case 50:
             case 51:
                 box = "box5";
+                boxNumber = box5;
                 break;
             case 34:
             case 35:
@@ -103,6 +140,7 @@ for (var x = 0; x < canvas.width - 1; x += 40) {
             case 53:
             case 54:
                 box = "box6";
+                boxNumber = box6;
                 break;
             case 55:
             case 56:
@@ -114,6 +152,7 @@ for (var x = 0; x < canvas.width - 1; x += 40) {
             case 74:
             case 75:
                 box = "box7";
+                boxNumber = box7;
                 break;
             case 58:
             case 59:
@@ -125,6 +164,7 @@ for (var x = 0; x < canvas.width - 1; x += 40) {
             case 77:
             case 78:
                 box = "box8";
+                boxNumber = box8;
                 break;
             case 61:
             case 62:
@@ -136,43 +176,65 @@ for (var x = 0; x < canvas.width - 1; x += 40) {
             case 80:
             case 81:
                 box = "box9";
+                boxNumber = box9;
                 break;
         }
         // row
         switch (true) {
             case (count <= 9):
                 row = "row1";
+                rowNumber = row1;
                 break;
             case (count <= 18):
                 row = "row2";
+                rowNumber = row2;
                 break;
             case (count <= 27):
                 row = "row3";
+                rowNumber = row3;
                 break;
             case (count <= 36):
                 row = "row4";
+                rowNumber = row4;
                 break;
             case (count <= 45):
                 row = "row5";
+                rowNumber = row5;
                 break;
             case (count <= 54):
                 row = "row6";
+                rowNumber = row6;
                 break;
             case (count <= 63):
                 row = "row7";
+                rowNumber = row7;
                 break;
             case (count <= 72):
                 row = "row8";
+                rowNumber = row8;
                 break;
             case (count <= 81):
                 row = "row9";
+                rowNumber = row9;
                 break;
         }
         var s = new Square(column, row, box, x, y, "red");
         squaresList.push(s);
+        boxNumber.push(s);
+        rowNumber.push(s);
+        columnNumber.push(s);
         count++;
         oneToNine++;
         (oneToNine === 10) ? oneToNine = 0 : oneToNine *= 1;
     }
 }
 console.log(squaresList);
+console.log(box1);
+console.log(box2);
+console.log(box3);
+console.log(box4);
+console.log(box5);
+console.log(box6);
+console.log(box7);
+console.log(box8);
+console.log(box9);
